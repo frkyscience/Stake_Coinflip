@@ -3,6 +3,13 @@ import random
 def calculate_payout(range_size):
     return 99 / range_size
 
+def load_profile():
+    try:
+        with open("profiles.json", "r") as file:
+            return json .load(file)
+    except FilenotFoundError:
+        return{}
+
 def main():
     print("Welcome to the Dice Game!")
     balance = 100 
