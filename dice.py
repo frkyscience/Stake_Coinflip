@@ -6,7 +6,7 @@ def calculate_payout(range_size):
 def load_profile():
     try:
         with open("profiles.json", "r") as file:
-            return json .load(file)
+            return json.load(file)
     except FilenotFoundError:
         return{}
 
