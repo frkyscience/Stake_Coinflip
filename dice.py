@@ -1,4 +1,5 @@
 import random
+import json
 
 def calculate_payout(range_size):
     return 99 / range_size
