@@ -1,15 +1,18 @@
 import random
 import json
 
+
 def calculate_payout(range_size):
     return 99 / range_size
+
 
 def load_profile():
     try:
         with open("profiles.json", "r") as file:
             return json.load(file)
     except FilenotFoundError:
-        return{}
+        return {}
+
 
 def main():
     print("Welcome to the Dice Game!")
@@ -27,7 +30,7 @@ def main():
             upper_bound = int(input("Enter the highest number in your range (1-100): "))
             
             if lower_bound < 1 or upper_bound > 100 or lower_bound >= upper_bound:
-                print("Wrong range. Please enter a number between 1 and 100, and make sure the lower number is less than the highest number.")
+                print("Wrong range. Please enter a number between 1 and 100")
                 continue
 
             range_size = upper_bound - lower_bound + 1
@@ -40,7 +43,7 @@ def main():
             print(f"The dice rolled: {roll}")
 
             if lower_bound <= roll <= upper_bound:
-                winnings = bet * payout
+                winnings = bet * payout - bet
                 balance += winnings
                 print(f"Congratulations! You win ${winnings:.2f}! Your new balance is ${balance:.2f}.")
             else:
@@ -58,6 +61,7 @@ def main():
 
         except ValueError:
             print("Please enter valid numbers.")
+
 
 if __name__ == "__main__":
     main()
